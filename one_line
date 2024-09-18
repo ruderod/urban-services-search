@@ -1,0 +1,2 @@
+#this is a simple one line cli command to look for services that are NOT running,  and yet have string "Automatic" which means they are set to run automatically.
+Get-Service | Select-Object StartType, Status, Name, DisplayName | Out-String -stream | select-string -pattern 'Running' -NotMatch | select-string -pattern 'Automatic'
